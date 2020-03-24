@@ -1,0 +1,23 @@
+.box {
+  list-style: none;
+  height: 45px;
+  width: 45px;
+  background-color: gray;
+  border: 1px solid black;
+}
+
+.sound {
+  display: flex;
+}
+
+.beat-row {
+  display: flex;
+}
+
+.beat-row li {
+  list-style: none;
+  height: 25px;
+  width: 25px;
+  background-color: gray;
+  border: black solid 1px;
+}

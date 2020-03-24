@@ -86,28 +86,6 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/cat.js":
-/*!********************!*\
-  !*** ./src/cat.js ***!
-  \********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("var Cat = function (name) {\n  this.name = name;\n}\n\nCat.prototype.meow = function () {\n  console.log(\"meow, I am\" + this.name);\n};\n\nmodule.exports = Cat\n\n//# sourceURL=webpack:///./src/cat.js?");
-
-/***/ }),
-
-/***/ "./src/dog.js":
-/*!********************!*\
-  !*** ./src/dog.js ***!
-  \********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("var Dog = function (name) {\n  this.name = name;\n}\n\nDog.prototype.woof = function () {\n  console.log(\"woof, I am\" + this.name);\n};\n\nmodule.exports = Dog\n\n//# sourceURL=webpack:///./src/dog.js?");
-
-/***/ }),
-
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -115,7 +93,18 @@ eval("var Dog = function (name) {\n  this.name = name;\n}\n\nDog.prototype.woof 
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var Cat = __webpack_require__(/*! ./cat.js */ \"./src/cat.js\")\nvar Dog = __webpack_require__(/*! ./dog.js */ \"./src/dog.js\")\n\nwindow.addEventListener('keydown', (e) => {\n  console.log(e)\n})\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("var Table = __webpack_require__(/*! ./table.js */ \"./src/table.js\")\n// var Tempo = require('./tempo.js')\n\nwindow.addEventListener('DOMContentLoaded', (event) => {\n  const soundTable = new Table()\n\n});\n\n//# sourceURL=webpack:///./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/table.js":
+/*!**********************!*\
+  !*** ./src/table.js ***!
+  \**********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("class Table {\n  \n  constructor() {\n    this.createTable();\n  }\n\n  createTable() {\n    let CELLS = 15;\n    const beatTable = document.getElementById(\"beat-table\")\n    const sounds = document.getElementById(\"sounds\")\n    \n    for (let i = 0; i < sounds.children.length; i++) {\n      console.log(sounds.children[i].id)\n      const ul = document.createElement(\"ul\");\n      ul.classList.add(`${sounds.children[i].id}`, `beat-row`)\n      \n      for (let j = 0; j < CELLS; j++) {\n        const li = document.createElement(\"li\");\n        li.classList.add(`col-${j}`, `${sounds.children[i].id}`)\n\n        li.addEventListener(\"click\", () => {\n          li.classList.toggle('clicked');\n\n          if (Array.prototype.slice.call(li.classList).includes(\"clicked\")) {\n            sounds.children[i].currentTime = 0;\n            sounds.children[i].play();\n          }\n        })\n\n        ul.appendChild(li)\n      } \n\n      beatTable.appendChild(ul)\n    }\n  }\n}\n\nmodule.exports = Table\n\n//# sourceURL=webpack:///./src/table.js?");
 
 /***/ })
 

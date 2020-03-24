@@ -1,6 +1,7 @@
-var Cat = require('./cat.js')
-var Dog = require('./dog.js')
+var Table = require('./table.js')
+// var Tempo = require('./tempo.js')
 
-window.addEventListener('keydown', (e) => {
-  console.log(e)
-})
+window.addEventListener('DOMContentLoaded', (event) => {
+  const soundTable = new Table()
+
+});
