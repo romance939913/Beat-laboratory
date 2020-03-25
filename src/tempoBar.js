@@ -5,6 +5,8 @@ class TempoBar {
 
   begin(tempo) {
     let tempoBar = document.getElementsByClassName(`col-${this.currentCol}`);
+    const sounds = document.getElementById("sounds");
+    let soundsCl = Array.prototype.slice.call(sounds.classList);
 
     for (let i = 0; i < tempoBar.length; i++) {
       tempoBar[i].classList.add("active")
@@ -13,7 +15,7 @@ class TempoBar {
     for (let i = 0; i < tempoBar.length; i++) {
       let cl = Array.prototype.slice.call(tempoBar[i].classList)
 
-      if (cl[3] === "active" && cl[2] === "clicked" /* and not muted */) {
+      if (cl[3] === "active" && cl[2] === "clicked" && !soundsCl.includes("muted")) {
         let audio = document.getElementById(`${cl[1]}`)
         this.stopPlay(audio);
         audio.play()
@@ -23,7 +25,7 @@ class TempoBar {
     for (let i = 0; i < tempoBar.length; i++) {
       setTimeout(() => tempoBar[i].classList.remove("active"), tempo);
     }
-    
+
     this.currentCol ++;
 
     if(this.currentCol >= 33) {
@@ -35,12 +37,16 @@ class TempoBar {
     sound.pause();
     sound.currentTime = 0;
   }
-
-  // reset() {
-  //   this.currentCol = 0;
-  //   let lis = document.getElementsByTagName("li")
-  //   // loop through lis and remove clicked class
-  // }
+  reset() {
+    this.currentCol = 0;
+    let lis = document.getElementsByTagName("li")
+    for (let i = 0; i < lis.length; i++) {
+      let licl = Array.prototype.slice.call(lis[i].classList)
+      if (licl.includes("clicked")) {
+        lis[i].classList.remove("clicked")
+      }
+    }
+  }
 }
 
 

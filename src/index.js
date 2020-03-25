@@ -12,6 +12,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const mute = document.getElementById("mute");
   const unpause = document.getElementById("unpause");
   const pause = document.getElementById("pause");
+  const reset = document.getElementById("reset");
   const tempoInput = document.getElementById("tempo-input");
 
   unmute.classList.add("off");
@@ -39,24 +40,18 @@ window.addEventListener('DOMContentLoaded', () => {
     pause.classList.remove("off");
   });
 
-//   $("#reset").click(() => {
-//     activeSlider.reset();
-//   });
+  reset.addEventListener("click", () => {
+    tempoBar.reset();
+  });
 
   mute.addEventListener("click", () => {
-
-    Array.prototype.slice.call(audio).forEach((sound) => {
-      sound.classList.add("muted");
-    })
+    sounds.classList.add("muted")
     unmute.classList.remove("off");
     mute.classList.add("off");
   });
 
   unmute.addEventListener("click", () => {
-
-    Array.prototype.slice.call(audio).forEach((sound) => {
-      sound.classList.remove("muted");
-    })
+    sounds.classList.remove("muted")
     unmute.classList.remove("off");
     mute.classList.remove("off");
   });

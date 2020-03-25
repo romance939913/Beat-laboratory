@@ -21,8 +21,8 @@ class Table {
         li.addEventListener("click", () => {
           li.classList.toggle("clicked");
 
-          if (Array.prototype.slice.call(li.classList).includes("clicked") && 
-            !Array.prototype.slice.call(li.classList).includes("muted")) {
+          let soundsCl = Array.prototype.slice.call(sounds.classList)
+          if (Array.prototype.slice.call(li.classList).includes("clicked") && !soundsCl.includes("muted")) {
             sounds.children[i].currentTime = 0;
             sounds.children[i].play();
           }
