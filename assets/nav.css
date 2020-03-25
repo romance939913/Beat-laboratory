@@ -1,0 +1,10 @@
+.hud {
+    display: flex;
+    justify-content: space-between;
+    width: 60vw;
+}
+
+.hud-element {
+  cursor: pointer;
+  font-size: 20px;
+}

@@ -1,0 +1,29 @@
+.beat-table {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.beat-row {
+  display: flex;
+}
+
+.beat-row li {
+  list-style: none;
+  height: 2vw;
+  width: 2vw;
+  background-color: gray;
+  opacity: 0.5;
+  border-radius: 5px;
+  margin: 4px;
+}
+
+li.active {
+  background-color: red;
+  opacity: 1.0;
+}
+
+li.clicked {
+  background-color: red;
+  opacity: 1.0;
+}

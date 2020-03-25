@@ -10,7 +10,6 @@ class Table {
     const sounds = document.getElementById("sounds")
     
     for (let i = 0; i < sounds.children.length; i++) {
-      console.log(sounds.children[i].id)
       const ul = document.createElement("ul");
       ul.classList.add(`${sounds.children[i].id}`, `beat-row`)
       

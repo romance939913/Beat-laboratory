@@ -7,7 +7,6 @@ window.addEventListener('DOMContentLoaded', () => {
   tempoBar.begin();
   
   const sounds = document.getElementById("sounds");
-  const audio = sounds.children;
   const unmute = document.getElementById("unmute");
   const mute = document.getElementById("mute");
   const unpause = document.getElementById("unpause");
@@ -23,7 +22,6 @@ window.addEventListener('DOMContentLoaded', () => {
   
   tempoInput.addEventListener("change", (e) => {
     tempo = e.target.value
-    console.log(tempo)
   })
 
   pause.addEventListener("click", () => {
