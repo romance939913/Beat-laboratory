@@ -32,11 +32,11 @@ class TempoBar {
     sound.currentTime = 0;
   }
 
-  // reset() {
-  //   this.currentCol = 0;
-  //   let lis = 
-  // }
-
+  reset() {
+    this.currentCol = 0;
+    let lis = document.getElementsByTagName("li")
+    // loop through lis and remove clicked class
+  }
 }
 
 

@@ -26,3 +26,7 @@
 li.active {
   background-color: red;
 }
+
+li.clicked {
+  background-color: red;
+}
