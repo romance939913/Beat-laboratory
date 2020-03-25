@@ -1,7 +1,8 @@
 var Table = require('./table.js')
-// var Tempo = require('./tempo.js')
+var TempoBar = require('./tempoBar.js')
 
-window.addEventListener('DOMContentLoaded', (event) => {
-  const soundTable = new Table()
-
+window.addEventListener('DOMContentLoaded', () => {
+  const soundTable = new Table();
+  const tempo = new TempoBar();
+  tempo.begin()
 });

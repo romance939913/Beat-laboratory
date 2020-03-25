@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var Table = __webpack_require__(/*! ./table.js */ \"./src/table.js\")\n// var Tempo = require('./tempo.js')\n\nwindow.addEventListener('DOMContentLoaded', (event) => {\n  const soundTable = new Table()\n\n});\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("var Table = __webpack_require__(/*! ./table.js */ \"./src/table.js\")\nvar TempoBar = __webpack_require__(/*! ./tempoBar.js */ \"./src/tempoBar.js\")\n\nwindow.addEventListener('DOMContentLoaded', () => {\n  const soundTable = new Table();\n  const tempo = new TempoBar();\n  tempo.begin()\n});\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
@@ -104,7 +104,18 @@ eval("var Table = __webpack_require__(/*! ./table.js */ \"./src/table.js\")\n// 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("class Table {\n  \n  constructor() {\n    this.createTable();\n  }\n\n  createTable() {\n    let CELLS = 15;\n    const beatTable = document.getElementById(\"beat-table\")\n    const sounds = document.getElementById(\"sounds\")\n    \n    for (let i = 0; i < sounds.children.length; i++) {\n      console.log(sounds.children[i].id)\n      const ul = document.createElement(\"ul\");\n      ul.classList.add(`${sounds.children[i].id}`, `beat-row`)\n      \n      for (let j = 0; j < CELLS; j++) {\n        const li = document.createElement(\"li\");\n        li.classList.add(`col-${j}`, `${sounds.children[i].id}`)\n\n        li.addEventListener(\"click\", () => {\n          li.classList.toggle('clicked');\n\n          if (Array.prototype.slice.call(li.classList).includes(\"clicked\")) {\n            sounds.children[i].currentTime = 0;\n            sounds.children[i].play();\n          }\n        })\n\n        ul.appendChild(li)\n      } \n\n      beatTable.appendChild(ul)\n    }\n  }\n}\n\nmodule.exports = Table\n\n//# sourceURL=webpack:///./src/table.js?");
+eval("class Table {\n  \n  constructor() {\n    this.createTable();\n  }\n\n  createTable() {\n    let CELLS = 15;\n    const beatTable = document.getElementById(\"beat-table\")\n    const sounds = document.getElementById(\"sounds\")\n    \n    for (let i = 0; i < sounds.children.length; i++) {\n      console.log(sounds.children[i].id)\n      const ul = document.createElement(\"ul\");\n      ul.classList.add(`${sounds.children[i].id}`, `beat-row`)\n      \n      for (let j = 0; j < CELLS; j++) {\n        const li = document.createElement(\"li\");\n        li.classList.add(`col-${j}`, `${sounds.children[i].id}`)\n\n        li.addEventListener(\"click\", () => {\n          li.classList.toggle('clicked');\n\n          if (Array.prototype.slice.call(li.classList).includes(\"clicked\") /* and not muted */) {\n            sounds.children[i].currentTime = 0;\n            sounds.children[i].play();\n          }\n        })\n\n        ul.appendChild(li)\n      } \n\n      beatTable.appendChild(ul)\n    }\n  }\n}\n\nmodule.exports = Table\n\n//# sourceURL=webpack:///./src/table.js?");
+
+/***/ }),
+
+/***/ "./src/tempoBar.js":
+/*!*************************!*\
+  !*** ./src/tempoBar.js ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("class TempoBar {\n  constructor() {\n    this.currentCol = 0;\n  }\n\n  begin() {\n    let tempoBar = document.getElementsByClassName(`col-0`);\n\n    for (let i = 0; i < tempoBar.length; i++) {\n      tempoBar[i].classList.add(\"active\")\n    }\n    // setTimeout(() => tempoBar.classList.remove(\"active\"), tempo);\n\n    for (let i = 0; i < tempoBar.length; i++) {\n      const classes = tempoBar[i].classList;\n      const audioId = Array.prototype.slice.call(classes)[1]\n      const audio = document.getElementById(audioId)\n      if (Array.prototype.slice.call(audio.classList).includes(\"clicked\") /* and not muted */) {\n        this.stopPlay(audio);\n        audio.play()\n      }\n    }\n    this.currentCol ++;\n\n    if(this.currentCol > 15) {\n      this.currentCol = 0;\n    }\n  }\n\n  stopPlay(sound) {\n    sound.pause();\n    sound.currentTime = 0;\n  }\n\n  // reset() {\n  //   this.currentCol = 0;\n  //   let lis = \n  // }\n\n}\n\n\nmodule.exports = TempoBar;\n\n//# sourceURL=webpack:///./src/tempoBar.js?");
 
 /***/ })
 
