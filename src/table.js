@@ -5,7 +5,7 @@ class Table {
   }
 
   createTable() {
-    let CELLS = 15;
+    let CELLS = 33;
     const beatTable = document.getElementById("beat-table")
     const sounds = document.getElementById("sounds")
     
@@ -19,9 +19,10 @@ class Table {
         li.classList.add(`col-${j}`, `${sounds.children[i].id}`)
 
         li.addEventListener("click", () => {
-          li.classList.toggle('clicked');
+          li.classList.toggle("clicked");
 
-          if (Array.prototype.slice.call(li.classList).includes("clicked") /* and not muted */) {
+          if (Array.prototype.slice.call(li.classList).includes("clicked") && 
+            !Array.prototype.slice.call(li.classList).includes("muted")) {
             sounds.children[i].currentTime = 0;
             sounds.children[i].play();
           }

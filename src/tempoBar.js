@@ -3,26 +3,30 @@ class TempoBar {
     this.currentCol = 0;
   }
 
-  begin() {
-    let tempoBar = document.getElementsByClassName(`col-0`);
+  begin(tempo) {
+    let tempoBar = document.getElementsByClassName(`col-${this.currentCol}`);
 
     for (let i = 0; i < tempoBar.length; i++) {
       tempoBar[i].classList.add("active")
     }
-    // setTimeout(() => tempoBar.classList.remove("active"), tempo);
-
+    
     for (let i = 0; i < tempoBar.length; i++) {
-      const classes = tempoBar[i].classList;
-      const audioId = Array.prototype.slice.call(classes)[1]
-      const audio = document.getElementById(audioId)
-      if (Array.prototype.slice.call(audio.classList).includes("clicked") /* and not muted */) {
+      let cl = Array.prototype.slice.call(tempoBar[i].classList)
+
+      if (cl[3] === "active" && cl[2] === "clicked" /* and not muted */) {
+        let audio = document.getElementById(`${cl[1]}`)
         this.stopPlay(audio);
         audio.play()
       }
     }
+
+    for (let i = 0; i < tempoBar.length; i++) {
+      setTimeout(() => tempoBar[i].classList.remove("active"), tempo);
+    }
+    
     this.currentCol ++;
 
-    if(this.currentCol > 15) {
+    if(this.currentCol >= 33) {
       this.currentCol = 0;
     }
   }
@@ -32,11 +36,11 @@ class TempoBar {
     sound.currentTime = 0;
   }
 
-  reset() {
-    this.currentCol = 0;
-    let lis = document.getElementsByTagName("li")
-    // loop through lis and remove clicked class
-  }
+  // reset() {
+  //   this.currentCol = 0;
+  //   let lis = document.getElementsByTagName("li")
+  //   // loop through lis and remove clicked class
+  // }
 }
 
 
