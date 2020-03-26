@@ -1,25 +1,22 @@
 class Table {
-  
-  constructor() {
-    this.createTable();
-    this.cells = 33;
-  }
-
   createTable() {
-    const measureInput = document.getElementById("measure-input");
-    measureInput.addEventListener("change", () => {
-      this.cells = measureInput.value * 4
-      this.createTable();
-    })
 
+    // const measureInput = document.getElementById("measure-input");
+    // measureInput.addEventListener("change", () => {
+    //   this.cells = measureInput.value * 4
+    //   this.createTable();
+    // })
+
+    let CELLS = 33;
     const beatTable = document.getElementById("beat-table")
     const sounds = document.getElementById("sounds")
-    
+    const checkboxes = document.getElementById("instrument-checkboxes")
+
     for (let i = 0; i < sounds.children.length; i++) {
       const ul = document.createElement("ul");
       ul.classList.add(`${sounds.children[i].id}`, `beat-row`)
       
-      for (let j = 0; j < this.cells; j++) {
+      for (let j = 0; j < CELLS; j++) {
         const li = document.createElement("li");
         li.classList.add(`col-${j}`, `${sounds.children[i].id}`)
 
@@ -37,6 +34,22 @@ class Table {
       } 
 
       beatTable.appendChild(ul)
+    }
+
+    for (let i = 0; i < checkboxes.children.length; i++) {
+      checkboxes.children[i].addEventListener("change", () => {
+        
+        let row = document.getElementsByClassName(`sound-${checkboxes.children[i].value}`)
+        if (!checkboxes.children[i].checked) {
+          for (let j = 0; j < row.length; j++) {
+            row[j].classList.add("disabled")
+          }
+        } else {
+          for (let j = 0; j < row.length; j++) {
+            row[j].classList.remove("disabled")
+          }
+        }
+      })
     }
   }
 }
