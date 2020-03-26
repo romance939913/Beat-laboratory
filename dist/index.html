@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <title>Beat-Laboratory</title>
@@ -11,10 +10,14 @@
   <link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One&display=swap" rel="stylesheet">
   <script src="main.js"></script>
 </head>
-
 <body>
   <div class="app-container">
     <header class="title">Beat Laboratory</header>
+    <aside>
+      <div>
+        <input type="number" id="measure-input" min="1" max="6">
+      </div>
+    </aside>
     <div id="beat-table">
     </div>
     <div id="sounds">
@@ -28,18 +31,16 @@
       <audio class="" id="sound-tom" src="../src/sounds/tom.wav" type="audio/wav"></audio>
       <audio class="" id="sound-tink" src="../src/sounds/tink.wav" type="audio/wav"></audio>
     </div>
-    <aside class="hud">
-      <p class="hud-element" id="reset">reset</p>
-      <p class="hud-element" id="pause">pause</p>
-      <p class="hud-element" id="unpause">unpause</p>
-      <p class="hud-element" id="unmute">unmute</p>
-      <p class="hud-element" id="mute">mute</p>
-    </aside>
+    <section class="hud">
+      <i class="hud-element" id="reset"><img src="../assets/reset.png" class="nav-icon" alt=""></i>
+      <i class="hud-element" id="pause"><img src="../assets/pause.png" class="nav-icon" alt=""></i>
+      <i class="hud-element" id="unpause"><img src="../assets/play_.png" class="nav-icon" alt=""></i>
+      <i class="hud-element" id="unmute"><img src="../assets/unmute.png" class="nav-icon" alt=""></i>
+      <i class="hud-element" id="mute"><img src="../assets/mute.png" class="nav-icon" alt=""></i>
+    </section>
     <label class="tempo" for="tempo">Tempo
-      <input id="tempo-input" type="range" max="900" min="50" value="475"></input>
+      <input id="tempo-input" class="tempo-meter" type="range" max="900" min="50" value="475"></input>
     </label>
   </div>
-
 </body>
-
 </html>

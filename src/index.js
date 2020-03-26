@@ -3,6 +3,7 @@ var TempoBar = require('./tempoBar.js')
 
 window.addEventListener('DOMContentLoaded', () => {
   const soundTable = new Table();
+  soundTable.createTable();
   const tempoBar = new TempoBar();
   tempoBar.begin();
   
@@ -14,8 +15,8 @@ window.addEventListener('DOMContentLoaded', () => {
   const reset = document.getElementById("reset");
   const tempoInput = document.getElementById("tempo-input");
 
-  unmute.classList.add("off");
-  unpause.classList.add("off");
+  unmute.classList.add("disabled");
+  unpause.classList.add("disabled");
 
   let playing = true;
   let tempo = tempoInput.value
@@ -27,15 +28,15 @@ window.addEventListener('DOMContentLoaded', () => {
   pause.addEventListener("click", () => {
     clearInterval(playLoop);
     playing = false;
-    pause.classList.add("off");
-    unpause.classList.remove("off");
+    pause.classList.add("disabled");
+    unpause.classList.remove("disabled");
   });
 
   unpause.addEventListener("click", () => {
     playing = true;
     play();
-    unpause.classList.add("off");
-    pause.classList.remove("off");
+    unpause.classList.add("disabled");
+    pause.classList.remove("disabled");
   });
 
   reset.addEventListener("click", () => {
@@ -44,14 +45,14 @@ window.addEventListener('DOMContentLoaded', () => {
 
   mute.addEventListener("click", () => {
     sounds.classList.add("muted")
-    unmute.classList.remove("off");
-    mute.classList.add("off");
+    unmute.classList.remove("disabled");
+    mute.classList.add("disabled");
   });
 
   unmute.addEventListener("click", () => {
     sounds.classList.remove("muted")
-    unmute.classList.remove("off");
-    mute.classList.remove("off");
+    unmute.classList.add("disabled");
+    mute.classList.remove("disabled");
   });
 
   let playLoop;

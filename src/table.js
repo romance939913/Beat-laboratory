@@ -2,10 +2,16 @@ class Table {
   
   constructor() {
     this.createTable();
+    this.cells = 33;
   }
 
   createTable() {
-    let CELLS = 33;
+    const measureInput = document.getElementById("measure-input");
+    measureInput.addEventListener("change", () => {
+      this.cells = measureInput.value * 4
+      this.createTable();
+    })
+
     const beatTable = document.getElementById("beat-table")
     const sounds = document.getElementById("sounds")
     
@@ -13,7 +19,7 @@ class Table {
       const ul = document.createElement("ul");
       ul.classList.add(`${sounds.children[i].id}`, `beat-row`)
       
-      for (let j = 0; j < CELLS; j++) {
+      for (let j = 0; j < this.cells; j++) {
         const li = document.createElement("li");
         li.classList.add(`col-${j}`, `${sounds.children[i].id}`)
 
