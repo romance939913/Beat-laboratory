@@ -1,6 +1,7 @@
 class TempoBar {
   constructor() {
     this.currentCol = 0;
+    this.measureCount = 4;
   }
 
   begin(tempo) {
@@ -44,6 +45,16 @@ class TempoBar {
       let licl = Array.prototype.slice.call(lis[i].classList)
       if (licl.includes("clicked")) {
         lis[i].classList.remove("clicked")
+      }
+    }
+    const checkboxes = document.getElementsByClassName("checkbox")
+    for (let i = 0; i < checkboxes.length; i++) {
+      checkboxes[i].checked = true;
+    }
+    for (let i = 0; i < checkboxes.length; i++) {
+      let row = document.getElementsByClassName(`sound-${checkboxes[i].value}`)
+      for (let j = 0; j < row.length; j++) {
+        row[j].classList.remove("disabled")
       }
     }
   }

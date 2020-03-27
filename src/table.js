@@ -1,18 +1,10 @@
 class Table {
   createTable() {
-
-    // const measureInput = document.getElementById("measure-input");
-    // measureInput.addEventListener("change", () => {
-    //   this.cells = measureInput.value * 4
-    //   this.createTable();
-    // })
-
-    let CELLS = 33;
+    let CELLS = 32;
     const beatTable = document.getElementById("beat-table")
     const sounds = document.getElementById("sounds")
     const checkboxes = document.getElementById("instrument-checkboxes")
 
-    // creating table
     for (let i = 0; i < sounds.children.length; i++) {
       const ul = document.createElement("ul");
       ul.classList.add(`${sounds.children[i].id}`, `beat-row`)
@@ -37,7 +29,6 @@ class Table {
       beatTable.appendChild(ul)
     }
 
-    // checkboxes
     for (let i = 0; i < checkboxes.children.length; i++) {
       checkboxes.children[i].addEventListener("change", () => {
         

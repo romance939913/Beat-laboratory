@@ -20,6 +20,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
   let playing = true;
   let tempo = tempoInput.value
+
+  let measureCount = document.getElementById("measure-input");
+  measureCount.addEventListener("change", () => {
+    
+  })
   
   tempoInput.addEventListener("change", (e) => {
     tempo = e.target.value
