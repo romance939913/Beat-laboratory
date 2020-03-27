@@ -22,8 +22,20 @@ window.addEventListener('DOMContentLoaded', () => {
   let tempo = tempoInput.value
 
   let measureCount = document.getElementById("measure-input");
-  measureCount.addEventListener("change", () => {
-    
+  measureCount.addEventListener("change", (e) => {
+    const uls = document.querySelectorAll("ul");
+    for (let i = 0; i < uls.length; i++) {
+      let ulsArray = Array.prototype.slice.call(uls[i].children)
+      let slicedOff = ulsArray.slice(e.target.value * 8);
+      let kept = ulsArray.slice(0, e.target.value * 8)
+      for (let j = 0; j < slicedOff.length; j++) {
+        slicedOff[j].classList.add("disabled")
+      }
+      for (let j = 0; j < kept.length; j++) {
+        kept[j].classList.remove("disabled")
+      }
+    }
+    tempoBar.measureChange(parseInt(e.target.value))
   })
   
   tempoInput.addEventListener("change", (e) => {
