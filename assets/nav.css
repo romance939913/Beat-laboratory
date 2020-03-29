@@ -1,7 +1,7 @@
 .hud {
-    display: flex;
-    justify-content: space-between;
-    width: 60vw;
+  display: flex;
+  justify-content: space-between;
+  width: 60vw;
 }
 
 .hud-element {
@@ -9,23 +9,118 @@
   font-size: 20px;
 }
 
-.disabled {
-    display: none;
-}
-
 .nav-icon {
-    height: 50px;
-    width: 50px;
+  height: 50px;
+  width: 50px;
 }
 
 .tempo-meter {
-    width: 40vw;
-    margin: 20px;
+  width: 40vw;
+  margin: 20px;
 }
 
 .tempo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 35px;
+}
+
+.tempo-meter {
+  height: 32px;
+  -webkit-appearance: none;
+  margin: 10px 0;
+  width: 40vw;
+}
+
+.tempo-meter:focus {
+  outline: none;
+}
+
+.tempo-meter::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 16px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px #000000;
+  background: #E00000;
+  border-radius: 25px;
+  border: 1px solid #B00000;
+}
+
+.tempo-meter::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px #000000;
+  border: 1px solid #B00000;
+  height: 24px;
+  width: 35px;
+  border-radius: 6px;
+  background: #FFFFFF;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -5px;
+}
+
+.tempo-meter:focus::-webkit-slider-runnable-track {
+  background: #E00000;
+}
+
+.tempo-meter::-moz-range-track {
+  width: 100%;
+  height: 16px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px #000000;
+  background: #E00000;
+  border-radius: 25px;
+  border: 1px solid #B00000;
+}
+
+.tempo-meter::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000;
+  border: 1px solid #B00000;
+  height: 24px;
+  width: 35px;
+  border-radius: 6px;
+  background: #FFFFFF;
+  cursor: pointer;
+}
+
+.tempo-meter::-ms-track {
+  width: 100%;
+  height: 16px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+.tempo-meter::-ms-fill-lower {
+  background: #E00000;
+  border: 1px solid #B00000;
+  border-radius: 50px;
+  box-shadow: 0px 0px 0px #000000;
+}
+
+.tempo-meter::-ms-fill-upper {
+  background: #E00000;
+  border: 1px solid #B00000;
+  border-radius: 50px;
+  box-shadow: 0px 0px 0px #000000;
+}
+
+.tempo-meter::-ms-thumb {
+  margin-top: 1px;
+  box-shadow: 1px 1px 1px #000000;
+  border: 1px solid #B00000;
+  height: 24px;
+  width: 35px;
+  border-radius: 6px;
+  background: #FFFFFF;
+  cursor: pointer;
+}
+
+.tempo-meter:focus::-ms-fill-lower {
+  background: #E00000;
+}
+
+.tempo-meter:focus::-ms-fill-upper {
+  background: #E00000;
 }

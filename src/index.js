@@ -29,10 +29,10 @@ window.addEventListener('DOMContentLoaded', () => {
       let slicedOff = ulsArray.slice(e.target.value * 8);
       let kept = ulsArray.slice(0, e.target.value * 8)
       for (let j = 0; j < slicedOff.length; j++) {
-        slicedOff[j].classList.add("disabled")
+        slicedOff[j].classList.add("minimized")
       }
       for (let j = 0; j < kept.length; j++) {
-        kept[j].classList.remove("disabled")
+        kept[j].classList.remove("minimized")
       }
     }
     tempoBar.measureChange(parseInt(e.target.value))

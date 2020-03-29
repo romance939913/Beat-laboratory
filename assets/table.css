@@ -1,3 +1,8 @@
+.beat-table-container {
+  display: flex;
+  align-items: center;
+}
+
 .beat-table {
   display: flex;
   flex-direction: column;
@@ -10,8 +15,10 @@
 
 .beat-row li {
   list-style: none;
-  height: 2vw;
-  width: 2vw;
+  height: 36px;
+  max-height: 36px;
+  width: 36px;
+  max-width: 36px;
   background-color: gray;
   opacity: 0.5;
   border-radius: 5px;
@@ -26,4 +33,8 @@ li.active {
 li.clicked {
   background-color: red;
   opacity: 1.0;
+}
+
+.minimized {
+  display: none;
 }

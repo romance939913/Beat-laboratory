@@ -7,38 +7,32 @@
   <link rel="stylesheet" href="../assets/table.css">
   <link rel="stylesheet" href="../assets/nav.css">
   <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="../assets/checkbox.css">
+  <link rel="stylesheet" href="../assets/tableOptions.css">
   <link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One&display=swap" rel="stylesheet">
   <script src="main.js"></script>
 </head>
 <body>
   <div class="app-container">
     <header class="title">Beat Laboratory</header>
-    <div className="table-options">
-      <div>
-        <input type="number" id="measure-input" value="4" min="1" max="4">
-      </div>
-      <div id="instrument-checkboxes">
-        <input type="checkbox" checked class="checkbox" value="clap">
-        <label>Clap</label>
-        <input type="checkbox" checked class="checkbox" value="closed-hat">
-        <label>Closed Hat</label>
-        <input type="checkbox" checked class="checkbox" value="kick">
-        <label>Kick</label>
-        <input type="checkbox" checked class="checkbox" value="open-hat">
-        <label>Open Hat</label>
-        <input type="checkbox" checked class="checkbox" value="boom">
-        <label>Boom</label>
-        <input type="checkbox" checked class="checkbox" value="ride">
-        <label>Ride</label>
-        <input type="checkbox" checked class="checkbox" value="snare">
-        <label>Snare</label>
-        <input type="checkbox" checked class="checkbox" value="tom">
-        <label>Tom</label>
-        <input type="checkbox" checked class="checkbox" value="tink">
-        <label>Tink</label>
-      </div>
+    <div class="measure-count-container">
+      <label>Measure Count</label>
+      <input class="measure-count" onKeyDown="return false" type="number" id="measure-input" value="4" min="1" max="4">
     </div>
-    <div id="beat-table">
+    <div class="beat-table-container">
+      <div id="instrument-checkboxes" class="checkboxes">
+        <input type="checkbox" checked class="checkbox plus-minus" value="clap">
+        <input type="checkbox" checked class="checkbox plus-minus" value="closed-hat">
+        <input type="checkbox" checked class="checkbox plus-minus" value="kick">
+        <input type="checkbox" checked class="checkbox plus-minus" value="open-hat">
+        <input type="checkbox" checked class="checkbox plus-minus" value="boom">
+        <input type="checkbox" checked class="checkbox plus-minus" value="ride">
+        <input type="checkbox" checked class="checkbox plus-minus" value="snare">
+        <input type="checkbox" checked class="checkbox plus-minus" value="tom">
+        <input type="checkbox" checked class="checkbox plus-minus" value="tink">
+      </div>
+      <div id="beat-table">
+      </div>
     </div>
     <div id="sounds">
       <audio class="" id="sound-clap" src="../src/sounds/clap.wav" type="audio/wav"></audio>

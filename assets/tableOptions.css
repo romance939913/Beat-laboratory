@@ -1,0 +1,36 @@
+.checkboxes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 500px;
+}
+
+.measure-count-container {
+    font-size: 35px;
+}
+
+.measure-count {
+    outline: none;
+    border: none;
+    height: 35px;
+    width: 50px;
+    font-size: 35px;
+}
+
+input[type=number]::-webkit-outer-spin-button {  
+   opacity: 1;
+}
+
+.measure-count:focus {
+    outline: none;
+    color: transparent;
+    text-shadow: 0 0 0 #000000;
+}
+
+.table-options {
+  display: flex;
+}
+
+.disabled {
+  display: none;
+}
