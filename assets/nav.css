@@ -14,6 +14,12 @@
   width: 50px;
 }
 
+.profile-links {
+  height: 40px;
+  width: 40px;
+  margin: 0px 15px 0px 15px;
+}
+
 .tempo-meter {
   width: 40vw;
   margin: 20px;
