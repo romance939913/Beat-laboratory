@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Beat Laboratory</title>
+  <link rel="stylesheet" href="assets/reset.css">
+  <link rel="stylesheet" href="assets/table.css">
+  <link rel="stylesheet" href="assets/nav.css">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/checkbox.css">
+  <link rel="stylesheet" href="assets/tableOptions.css">
+  <link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One&display=swap" rel="stylesheet">
+  <script src="dist/main.js"></script>
+</head>
+<body>
+  <div class="app-container">
+    <header class="title">Beat Laboratory</header>
+    <div class="measure-count-container">
+      <label>Measure Count:</label>
+      <input class="measure-count" onKeyDown="return false" type="number" id="measure-input" value="4" min="1" max="4">
+    </div>
+    <div class="beat-table-container">
+      <div id="instrument-checkboxes" class="checkboxes">
+        <input type="checkbox" checked class="checkbox plus-minus" value="clap">
+        <input type="checkbox" checked class="checkbox plus-minus" value="closed-hat">
+        <input type="checkbox" checked class="checkbox plus-minus" value="kick">
+        <input type="checkbox" checked class="checkbox plus-minus" value="open-hat">
+        <input type="checkbox" checked class="checkbox plus-minus" value="boom">
+        <input type="checkbox" checked class="checkbox plus-minus" value="ride">
+        <input type="checkbox" checked class="checkbox plus-minus" value="snare">
+        <input type="checkbox" checked class="checkbox plus-minus" value="tom">
+        <input type="checkbox" checked class="checkbox plus-minus" value="tink">
+      </div>
+      <div id="beat-table">
+      </div>
+    </div>
+    <div id="sounds">
+      <audio class="" id="sound-clap" src="src/sounds/clap.wav" type="audio/wav"></audio>
+      <audio class="" id="sound-closed-hat" src="src/sounds/hihat.wav" type="audio/wav"></audio>
+      <audio class="" id="sound-kick" src="src/sounds/kick.wav" type="audio/wav"></audio>
+      <audio class="" id="sound-open-hat" src="src/sounds/openhat.wav" type="audio/wav"></audio>
+      <audio class="" id="sound-boom" src="src/sounds/boom.wav" type="audio/wav"></audio>
+      <audio class="" id="sound-ride" src="src/sounds/ride.wav" type="audio/wav"></audio>
+      <audio class="" id="sound-snare" src="src/sounds/snare.wav" type="audio/wav"></audio>
+      <audio class="" id="sound-tom" src="src/sounds/tom.wav" type="audio/wav"></audio>
+      <audio class="" id="sound-tink" src="src/sounds/tink.wav" type="audio/wav"></audio>
+    </div>
+    <section class="hud">
+      <i class="hud-element" id="reset"><img src="assets/reset.png" class="nav-icon" alt=""></i>
+      <i class="hud-element" id="pause"><img src="assets/pause.png" class="nav-icon" alt=""></i>
+      <i class="hud-element" id="unpause"><img src="assets/play_.png" class="nav-icon" alt=""></i>
+      <i class="hud-element" id="unmute"><img src="assets/unmute.png" class="nav-icon" alt=""></i>
+      <i class="hud-element" id="mute"><img src="assets/mute.png" class="nav-icon" alt=""></i>
+    </section>
+    <label class="tempo" for="tempo">Tempo
+      <input id="tempo-input" class="tempo-meter" type="range" max="900" min="50" value="475"></input>
+    </label>
+    <div>
+      <a href="https://www.linkedin.com/in/brennanromance/">
+        <img class="profile-links" src="assets/linkedin-icon.png" alt="github icon" srcset="">
+      </a>
+      <a href="https://github.com/romance939913/">
+        <img class="profile-links" src="assets/ghub-icon.png" alt="linkedin icon" srcset="">
+      </a>
+    </div>
+  </div>
+</body>
+</html>

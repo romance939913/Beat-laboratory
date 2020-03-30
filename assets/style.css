@@ -7,7 +7,6 @@
 .app-container {
     width: 100vw;
     height: 100vh;
-    background-size: 100%;
     background-image: url("rainbow-splash.jpg");
     display: flex;
     flex-direction: column;
