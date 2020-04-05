@@ -17,7 +17,7 @@
     <header class="title">Beat Laboratory</header>
     <div class="measure-count-container">
       <label>Measure Count:</label>
-      <input class="measure-count" onKeyDown="return false" type="number" id="measure-input" value="4" min="1" max="4">
+      <input class="measure-count" onKeyDown="return false" type="number" id="measure-input" value="4" max="4" min="1">
     </div>
     <div class="beat-table-container">
       <div id="instrument-checkboxes" class="checkboxes">
@@ -47,13 +47,13 @@
     </div>
     <section class="hud">
       <i class="hud-element" id="reset"><img src="assets/reset.png" class="nav-icon" alt=""></i>
-      <i class="hud-element" id="pause"><img src="assets/pause.png" class="nav-icon" alt=""></i>
-      <i class="hud-element" id="unpause"><img src="assets/play_.png" class="nav-icon" alt=""></i>
+      <i class="hud-element" id="pause"><img src="assets/pauseicon.png" class="nav-icon" alt=""></i>
+      <i class="hud-element" id="unpause"><img src="assets/play.png" class="nav-icon" alt=""></i>
       <i class="hud-element" id="unmute"><img src="assets/unmute.png" class="nav-icon" alt=""></i>
       <i class="hud-element" id="mute"><img src="assets/mute.png" class="nav-icon" alt=""></i>
     </section>
     <label class="tempo" for="tempo">Tempo
-      <input id="tempo-input" class="tempo-meter" type="range" max="900" min="50" value="475"></input>
+      <input id="tempo-input" class="tempo-meter" type="range" min="50" max="900" value="475"></input>
     </label>
     <div>
       <a href="https://www.linkedin.com/in/brennanromance/">

@@ -37,6 +37,7 @@
   -webkit-appearance: none;
   margin: 10px 0;
   width: 40vw;
+  direction: rtl;
 }
 
 .tempo-meter:focus {
