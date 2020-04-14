@@ -4,6 +4,4 @@ A fun, sandbox-type application for users to experiment with creating beats on a
 
 Here's a link to the [live site](https://romance939913.github.io/Beat-laboratory/)
 
-![app-screenshot](screenshot.png)
-
-Leveraged Object-oriented Javascript to create the main features: The Tempo bar and the Beat table.
+![app-screenshot](assets/beatlab.gif)
