@@ -11,7 +11,7 @@ Here's the live site if you want to try it out yourself [live site](https://roma
 
 Leveraged Object-Oriented Javascript to build out the three main features: the beat table, the tempo bar and the index class which sets event listeners and executes methods it requires. 
 
-The Table script has a createTable method which generates the cells and adds a class of clicked when the user clicks, which will also play the audio 
+The Table class has a createTable method which generates the cells and adds a class of clicked when the user clicks, which will also play the audio 
 
 ```js
 class Table {
