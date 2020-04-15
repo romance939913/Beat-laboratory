@@ -1,6 +1,6 @@
 # Beat-laboratory
 
-This project let me challenge myself to use just the bare necessities. Just vanilla JS, HTML and CSS, no packages or libraries anywhere in the repo! 
+This project offered a great opportunity to test my skills using just the bare necessities. No package.json anywhere in the repo, just HTML, CSS and vanillaJS!
 
 Here's the live site if you want to try it out yourself [live site](https://romance939913.github.io/Beat-laboratory/)
 <br/>
