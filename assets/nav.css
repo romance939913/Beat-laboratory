@@ -36,7 +36,6 @@
   align-items: center;
   font-size: 35px;
   z-index: 1;
-  background-color: #b61924;
 }
 
 .tempo-meter {
@@ -45,7 +44,6 @@
   margin: 10px 0;
   width: 40vw;
   direction: rtl;
-  background-color: #b61924;
 }
 
 .tempo-meter:focus {
