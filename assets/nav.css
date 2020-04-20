@@ -10,10 +10,6 @@
   font-size: 20px;
 }
 
-.hud-element:hover {
-  box-shadow: 0 0 4px black;
-}
-
 .nav-icon {
   height: 50px;
   width: 50px;
