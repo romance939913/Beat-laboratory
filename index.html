@@ -10,10 +10,12 @@
   <link rel="stylesheet" href="assets/checkbox.css">
   <link rel="stylesheet" href="assets/tableOptions.css">
   <link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script src="dist/main.js"></script>
 </head>
 <body>
   <div class="app-container">
+    <div class="particles-js" id="particles-js"></div>
     <header class="title">Beat Laboratory</header>
     <div class="measure-count-container">
       <label>Measure Count:</label>
@@ -46,20 +48,20 @@
       <audio class="" id="sound-tink" src="src/sounds/tink.wav" type="audio/wav"></audio>
     </div>
     <section class="hud">
-      <i class="hud-element" id="reset"><img src="assets/reset.png" class="nav-icon" alt=""></i>
-      <i class="hud-element" id="pause"><img src="assets/pauseicon.png" class="nav-icon" alt=""></i>
-      <i class="hud-element" id="unpause"><img src="assets/play.png" class="nav-icon" alt=""></i>
-      <i class="hud-element" id="unmute"><img src="assets/unmute.png" class="nav-icon" alt=""></i>
-      <i class="hud-element" id="mute"><img src="assets/mute.png" class="nav-icon" alt=""></i>
+      <i class="hud-element" id="reset"><img src="assets/restarticonn.png" class="nav-icon" alt=""></i>
+      <i class="hud-element" id="pause"><img src="assets/pauseiconn.png" class="nav-icon" alt=""></i>
+      <i class="hud-element" id="unpause"><img src="assets/playiconn.png" class="nav-icon" alt=""></i>
+      <i class="hud-element" id="unmute"><img src="assets/mute.png" class="nav-icon" alt=""></i>
+      <i class="hud-element" id="mute"><img src="assets/unmute.png" class="nav-icon" alt=""></i>
     </section>
     <label class="tempo" for="tempo">Tempo
       <input id="tempo-input" class="tempo-meter" type="range" min="50" max="900" value="475"></input>
     </label>
-    <div>
-      <a href="https://www.linkedin.com/in/brennanromance/">
+    <div class="prof-links">
+      <a target="_blank" href="https://www.linkedin.com/in/brennanromance/">
         <img class="profile-links" src="assets/linkedin-icon.png" alt="github icon" srcset="">
       </a>
-      <a href="https://github.com/romance939913/">
+      <a target="_blank" href="https://github.com/romance939913/">
         <img class="profile-links" src="assets/ghub-icon.png" alt="linkedin icon" srcset="">
       </a>
     </div>

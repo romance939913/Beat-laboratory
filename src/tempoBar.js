@@ -23,7 +23,9 @@ class TempoBar {
     for (let i = 0; i < tempoBar.length; i++) {
       setTimeout(() => tempoBar[i].classList.remove("active"), tempo);
     }
+
     this.currentCol ++;
+    
     if(this.currentCol >= this.measureCount * 8) {
       this.currentCol = 0;
     }
