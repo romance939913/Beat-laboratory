@@ -1,1 +1,122 @@
-!function(e){var t={};function l(s){if(t[s])return t[s].exports;var n=t[s]={i:s,l:!1,exports:{}};return e[s].call(n.exports,n,n.exports,l),n.l=!0,n.exports}l.m=e,l.c=t,l.d=function(e,t,s){l.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:s})},l.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},l.t=function(e,t){if(1&t&&(e=l(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var s=Object.create(null);if(l.r(s),Object.defineProperty(s,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var n in e)l.d(s,n,function(t){return e[t]}.bind(null,n));return s},l.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return l.d(t,"a",t),t},l.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},l.p="",l(l.s=0)}([function(e,t,l){l(1),e.exports=l(4)},function(e,t,l){var s=l(2),n=l(3);window.addEventListener("DOMContentLoaded",()=>{(new s).createTable();const e=new n;e.begin();const t=document.getElementById("sounds"),l=document.getElementById("unmute"),c=document.getElementById("mute"),r=document.getElementById("unpause"),d=document.getElementById("pause"),a=document.getElementById("reset"),i=document.getElementById("tempo-input");l.classList.add("disabled"),r.classList.add("disabled");let o,u=!0,m=i.value;document.getElementById("measure-input").addEventListener("change",t=>{const l=document.querySelectorAll("ul");for(let e=0;e<l.length;e++){let s=Array.prototype.slice.call(l[e].children),n=s.slice(8*t.target.value),c=s.slice(0,8*t.target.value);for(let e=0;e<n.length;e++)n[e].classList.add("minimized");for(let e=0;e<c.length;e++)c[e].classList.remove("minimized")}e.measureChange(parseInt(t.target.value))}),i.addEventListener("change",e=>{m=e.target.value}),d.addEventListener("click",()=>{clearInterval(o),u=!1,d.classList.add("disabled"),r.classList.remove("disabled")}),r.addEventListener("click",()=>{u=!0,g(),r.classList.add("disabled"),d.classList.remove("disabled")}),a.addEventListener("click",()=>{e.reset()}),c.addEventListener("click",()=>{t.classList.add("muted"),l.classList.remove("disabled"),c.classList.add("disabled")}),l.addEventListener("click",()=>{t.classList.remove("muted"),l.classList.add("disabled"),c.classList.remove("disabled")});const g=()=>{o=setTimeout(()=>{e.begin(m),u&&g()},m)};g()})},function(e,t){e.exports=class{createTable(){const e=document.getElementById("beat-table"),t=document.getElementById("sounds"),l=document.getElementById("instrument-checkboxes");for(let l=0;l<t.children.length;l++){const s=document.createElement("ul");s.classList.add(`${t.children[l].id}`,"beat-row");for(let e=0;e<32;e++){const n=document.createElement("li");n.classList.add(`col-${e}`,`${t.children[l].id}`),n.addEventListener("click",()=>{n.classList.toggle("clicked");let e=Array.prototype.slice.call(t.classList);Array.prototype.slice.call(n.classList).includes("clicked")&&!e.includes("muted")&&(t.children[l].currentTime=0,t.children[l].play())}),s.appendChild(n)}e.appendChild(s)}for(let e=0;e<l.children.length;e++)l.children[e].addEventListener("change",()=>{let t=document.getElementsByClassName(`sound-${l.children[e].value}`);if(l.children[e].checked)for(let e=0;e<t.length;e++)t[e].classList.remove("disabled");else for(let e=0;e<t.length;e++)t[e].classList.add("disabled")})}}},function(e,t){e.exports=class{constructor(e=4){this.currentCol=0,this.measureCount=e}begin(e){let t=document.getElementsByClassName(`col-${this.currentCol}`);const l=document.getElementById("sounds");let s=Array.prototype.slice.call(l.classList);for(let e=0;e<t.length;e++)t[e].classList.add("active");for(let e=0;e<t.length;e++){let l=Array.prototype.slice.call(t[e].classList);if("active"===l[3]&&"clicked"===l[2]&&!s.includes("muted")){let e=document.getElementById(`${l[1]}`);this.stopPlay(e),e.play()}}for(let l=0;l<t.length;l++)setTimeout(()=>t[l].classList.remove("active"),e);this.currentCol++,this.currentCol>=8*this.measureCount&&(this.currentCol=0)}stopPlay(e){e.pause(),e.currentTime=0}measureChange(e){this.currentCol=0,this.measureCount=e}reset(){this.currentCol=0,this.measureCount=4;let e=document.getElementsByTagName("li");for(let t=0;t<e.length;t++){Array.prototype.slice.call(e[t].classList).includes("clicked")&&e[t].classList.remove("clicked")}const t=document.getElementsByClassName("checkbox");for(let e=0;e<t.length;e++)t[e].checked=!0;for(let e=0;e<t.length;e++){let l=document.getElementsByClassName(`sound-${t[e].value}`);for(let e=0;e<l.length;e++)l[e].classList.remove("disabled")}}}},function(e,t){}]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var Table = __webpack_require__(/*! ./table.js */ \"./src/table.js\")\nvar TempoBar = __webpack_require__(/*! ./tempoBar.js */ \"./src/tempoBar.js\")\n\nwindow.addEventListener('DOMContentLoaded', () => {\n  const soundTable = new Table();\n  soundTable.createTable();\n  const tempoBar = new TempoBar();\n  tempoBar.begin();\n  \n  const sounds = document.getElementById(\"sounds\");\n  const unmute = document.getElementById(\"unmute\");\n  const mute = document.getElementById(\"mute\");\n  const unpause = document.getElementById(\"unpause\");\n  const pause = document.getElementById(\"pause\");\n  const reset = document.getElementById(\"reset\");\n  const tempoInput = document.getElementById(\"tempo-input\");\n\n  unmute.classList.add(\"disabled\");\n  unpause.classList.add(\"disabled\");\n\n  let playing = true;\n  let tempo = tempoInput.value\n\n  let measureCount = document.getElementById(\"measure-input\");\n  measureCount.addEventListener(\"change\", (e) => {\n    const uls = document.querySelectorAll(\"ul\");\n    for (let i = 0; i < uls.length; i++) {\n      let ulsArray = Array.prototype.slice.call(uls[i].children)\n      let slicedOff = ulsArray.slice(e.target.value * 8);\n      let kept = ulsArray.slice(0, e.target.value * 8)\n      for (let j = 0; j < slicedOff.length; j++) {\n        slicedOff[j].classList.add(\"minimized\")\n      }\n      for (let j = 0; j < kept.length; j++) {\n        kept[j].classList.remove(\"minimized\")\n      }\n    }\n    tempoBar.measureChange(parseInt(e.target.value))\n  })\n  \n  tempoInput.addEventListener(\"change\", (e) => {\n    tempo = e.target.value\n  })\n\n  pause.addEventListener(\"click\", () => {\n    clearInterval(playLoop);\n    playing = false;\n    pause.classList.add(\"disabled\");\n    unpause.classList.remove(\"disabled\");\n  });\n\n  unpause.addEventListener(\"click\", () => {\n    playing = true;\n    play();\n    unpause.classList.add(\"disabled\");\n    pause.classList.remove(\"disabled\");\n  });\n\n  reset.addEventListener(\"click\", () => {\n    tempoBar.reset();\n  });\n\n  mute.addEventListener(\"click\", () => {\n    sounds.classList.add(\"muted\")\n    unmute.classList.remove(\"disabled\");\n    mute.classList.add(\"disabled\");\n  });\n\n  unmute.addEventListener(\"click\", () => {\n    sounds.classList.remove(\"muted\")\n    unmute.classList.add(\"disabled\");\n    mute.classList.remove(\"disabled\");\n  });\n\n  let playLoop;\n\n  const play = () => {\n    playLoop = setTimeout(() => {\n      tempoBar.begin(tempo);\n      if (playing) {\n        play();\n      }\n    }, tempo);\n  };\n\n  play();\n\n});\n\n//# sourceURL=webpack:///./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/table.js":
+/*!**********************!*\
+  !*** ./src/table.js ***!
+  \**********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("class Table {\n  createTable() {\n    let CELLS = 32;\n    const beatTable = document.getElementById(\"beat-table\")\n    const sounds = document.getElementById(\"sounds\")\n    const checkboxes = document.getElementById(\"instrument-checkboxes\")\n\n    for (let i = 0; i < sounds.children.length; i++) {\n      const ul = document.createElement(\"ul\");\n      ul.classList.add(`${sounds.children[i].id}`, `beat-row`)\n      \n      for (let j = 0; j < CELLS; j++) {\n        const li = document.createElement(\"li\");\n        li.classList.add(`col-${j}`, `${sounds.children[i].id}`)\n\n        li.addEventListener(\"click\", () => {\n          li.classList.toggle(\"clicked\");\n\n          let soundsCl = Array.prototype.slice.call(sounds.classList)\n          if (Array.prototype.slice.call(li.classList).includes(\"clicked\") && !soundsCl.includes(\"muted\")) {\n            sounds.children[i].currentTime = 0;\n            sounds.children[i].play();\n          }\n        })\n\n        ul.appendChild(li)\n      } \n\n      beatTable.appendChild(ul)\n    }\n\n    for (let i = 0; i < checkboxes.children.length; i++) {\n      checkboxes.children[i].addEventListener(\"change\", () => {\n        \n        let row = document.getElementsByClassName(`sound-${checkboxes.children[i].value}`)\n        if (!checkboxes.children[i].checked) {\n          for (let j = 0; j < row.length; j++) {\n            row[j].classList.add(\"disabled\")\n          }\n        } else {\n          for (let j = 0; j < row.length; j++) {\n            row[j].classList.remove(\"disabled\")\n          }\n        }\n      })\n    }\n  }\n}\n\nmodule.exports = Table\n\n//# sourceURL=webpack:///./src/table.js?");
+
+/***/ }),
+
+/***/ "./src/tempoBar.js":
+/*!*************************!*\
+  !*** ./src/tempoBar.js ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("class TempoBar {\n  constructor(count = 4) {\n    this.currentCol = 0;\n    this.measureCount = count;\n  }\n\n  begin(tempo) {\n    let tempoBar = document.getElementsByClassName(`col-${this.currentCol}`);\n    const sounds = document.getElementById(\"sounds\");\n    let soundsCl = Array.prototype.slice.call(sounds.classList);\n    for (let i = 0; i < tempoBar.length; i++) {\n      tempoBar[i].classList.add(\"active\")\n    }\n    for (let i = 0; i < tempoBar.length; i++) {\n      let cl = Array.prototype.slice.call(tempoBar[i].classList)\n\n      if (cl[3] === \"active\" && cl[2] === \"clicked\" && !soundsCl.includes(\"muted\")) {\n        let audio = document.getElementById(`${cl[1]}`)\n        this.stopPlay(audio);\n        audio.play()\n      }\n    }\n    for (let i = 0; i < tempoBar.length; i++) {\n      setTimeout(() => tempoBar[i].classList.remove(\"active\"), tempo);\n    }\n\n    this.currentCol ++;\n    \n    if(this.currentCol >= this.measureCount * 8) {\n      this.currentCol = 0;\n    }\n  }\n\n  stopPlay(sound) {\n    sound.pause();\n    sound.currentTime = 0;\n  }\n\n  measureChange(count) {\n    this.currentCol = 0;\n    this.measureCount = count\n  }\n\n  reset() {\n    this.currentCol = 0;\n    this.measureCount = 4\n    let lis = document.getElementsByTagName(\"li\")\n\n    for (let i = 0; i < lis.length; i++) {\n      let licl = Array.prototype.slice.call(lis[i].classList)\n      if (licl.includes(\"clicked\")) {\n        lis[i].classList.remove(\"clicked\")\n      }\n    }\n    const checkboxes = document.getElementsByClassName(\"checkbox\")\n    for (let i = 0; i < checkboxes.length; i++) {\n      checkboxes[i].checked = true;\n    }\n    for (let i = 0; i < checkboxes.length; i++) {\n      let row = document.getElementsByClassName(`sound-${checkboxes[i].value}`)\n      for (let j = 0; j < row.length; j++) {\n        row[j].classList.remove(\"disabled\")\n      }\n    }\n  }\n}\n\n\nmodule.exports = TempoBar;\n\n//# sourceURL=webpack:///./src/tempoBar.js?");
+
+/***/ })
+
+/******/ });
