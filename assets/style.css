@@ -3,6 +3,7 @@
   font-family: 'Rubik Mono One', sans-serif;
   color: black;
   z-index: 1;
+  animation-duration: 1s;
 }
 
 .app-container {

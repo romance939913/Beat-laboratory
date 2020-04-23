@@ -14,6 +14,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const pause = document.getElementById("pause");
   const reset = document.getElementById("reset");
   const tempoInput = document.getElementById("tempo-input");
+  const title = document.getElementById("title");
 
   unmute.classList.add("disabled");
   unpause.classList.add("disabled");
@@ -71,6 +72,13 @@ window.addEventListener('DOMContentLoaded', () => {
     unmute.classList.add("disabled");
     mute.classList.remove("disabled");
   });
+
+  title.addEventListener("mouseenter", () => {
+    title.classList.add('animated', 'pulse')
+    setTimeout(() => {
+      title.classList.remove('animated', 'pulse')
+    }, 1000)
+  })
 
   let playLoop;
 
